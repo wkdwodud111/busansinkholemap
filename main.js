@@ -1,4 +1,10 @@
-const map = L.map('map').setView([35.1796, 129.0756], 11);
+const map = L.map('map', {
+  zoomControl: false
+}).setView([35.1796, 129.0756], 11);
+
+L.control.zoom({
+  position: 'bottomleft'
+}).addTo(map);
 
 let geojson;
 let colorOn = false;
@@ -99,10 +105,16 @@ fetch('data/busan_dong.geojson')
             }
           },
           mouseout: (e) => {
-            geojson.resetStyle(e.target);
-          }
-        });
-
+  if (!colorOn) {
+    geojson.resetStyle(e.target);
+  } else {
+    e.target.setStyle({
+      weight: 1,
+      color: "#000",
+      });
+      }
+      }
+    })
         // 라벨
         if (f.properties.label_lat && f.properties.label_lng) {
           L.marker([f.properties.label_lat, f.properties.label_lng], { opacity: 0 })
