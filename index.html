@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=0.75">
   <meta charset="UTF-8" />
   <title>부산 싱크홀 안전지도</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
@@ -10,11 +11,6 @@
   <h1>부산 싱크홀 안전지도</h1>
   <div class="container">
     <div id="map"></div>
-    <div id="info-box">
-      <!-- 여기에 설명이나 버튼 등 추가 가능 -->
-      <h2>지역 정보</h2>
-      <p>행정동을 클릭하면 정보가 표시됩니다.</p>
-    </div>
   </div>
 
   <!-- 위험 등급 이미지 -->
@@ -30,6 +26,54 @@
   <button onclick="toggleAllColors()">전체 위험등급 표시</button>
   </div>
 
+  <!-- 사상구 정보 박스 -->
+    <div class="info-box info-box1" id="info-sasanggu1" style="display: none;">
+      <h2>위험등급 5</h2>
+      <p>부산광역시 사상구</p>
+      <p>사고수 17</p>
+    </div>
+
+    <div class="info-box info-box2" id="info-sasanggu2" style="display: none;">
+      <p>지하철 분포 3등급</p>
+      <p>지반 위험도 0등급</p>
+      <p>지하수 0등급</p>
+      <p>노후건물 분포 0등급</p>
+    </div>
+
+    <div class="info-box info-box3" id="info-sasanggu3" style="display: none;">
+      <h3>발생 현황</h3>
+      <p>2023년부터 총 14차례</p>
+      <h3>싱크홀 발생 주요 지역</h3>
+      <p>사상~하단선 공사 인근</p>
+      <h3>최근 사고</h3>
+      <p>- 2025년 4월 13일, 14일 감전동</p>
+      <p>- 길이 5m, 깊이 5m 싱크홀 발생</p>
+      <p>- 길이 3m, 깊이 2m 싱크홀 발생</p>
+      <p>- 차량 추락 사고 및 도로 파손 발생</p>
+    </div>
+
+    <div class="info-box info-box4" id="info-sasanggu4" style="display: none;">
+      <h3>지반특성</h3>
+      <p>- 점토층과 모래층이 혼합된 연약지반</p>
+      <p>- 지하수 유입, 인근에 하천</p>
+      <h3>대책</h3>
+      <p>① 수직 차수 보강 그라우팅</p>
+      <p>공사 구간 1,100곳에 보강 작업 실시</p>
+      <p>② 정밀 계측 및 모니터링 강화</p>
+      <p>GPR 탐사, CCTV 점검 등</p>
+      <p>③ 지반 침하 위험도 평가</p>
+      <p>위험 지역에 대한 지속적인 모니터링</p>
+    </div>
+
+
+
+
+
+
+
+
+
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="main.js"></script>
 </body>
+</html>

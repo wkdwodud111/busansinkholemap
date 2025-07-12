@@ -1,3 +1,21 @@
+// =================== 각 구별 인포박스 정의 ===================
+
+// 사상구 시작 ------------------------------------------------------------------
+const infoSasanggu = [
+  document.getElementById("info-sasanggu1"),
+  document.getElementById("info-sasanggu2"),
+  document.getElementById("info-sasanggu3"),
+  document.getElementById("info-sasanggu4")
+];
+// 사상구 끝 --------------------------------------------------------------------
+
+// ↓ 여기에 사하구, 남구, ... 추가하면 됨 (아래처럼)
+// const infoSahagu = [document.getElementById("info-sahagu1"), ...];
+// const infoNamgu = [...];
+
+
+// =================== 지도 및 GeoJSON 처리 ===================
+
 const map = L.map('map', {
   zoomControl: false
 }).setView([35.1796, 129.0756], 11);
@@ -54,6 +72,11 @@ const defaultStyle = {
   fillOpacity: 1.0
 };
 
+function toggleAllColors() {
+  colorOn = !colorOn;
+  geojson.setStyle(colorOn ? colorStyle : defaultStyle);
+}
+
 map.createPane('markerPane');
 map.getPane('markerPane').style.zIndex = 650;
 
@@ -82,9 +105,15 @@ const colorStyle = (feature) => {
     color: "#000",
     weight: 1,
     fillColor: color,
-    fillOpacity: 0.8
+    fillOpacity: 0.75
   };
 };
+
+// =================== 인포박스 표시 및 라벨 ===================
+
+function hideAllInfoBoxes() {
+  document.querySelectorAll(".info-box").forEach(box => (box.style.display = "none"));
+}
 
 fetch('data/busan_dong.geojson')
   .then(res => res.json())
@@ -92,7 +121,8 @@ fetch('data/busan_dong.geojson')
     geojson = L.geoJSON(dongJSON, {
       style: defaultStyle,
       onEachFeature: (f, layer) => {
-        // 마우스 오버 효과
+        const name = f.properties.SIGUNGU_NM;
+
         layer.on({
           mouseover: (e) => {
             e.target.setStyle({
@@ -100,21 +130,38 @@ fetch('data/busan_dong.geojson')
               color: "#666",
               fillOpacity: 0.75
             });
+
+            // 사상구 인포박스 표시
+            if (name === "사상구") {
+              hideAllInfoBoxes();
+              infoSasanggu.forEach(box => box.style.display = "block");
+                e.target.setStyle({
+                fillColor: '#FF6464',
+                fillOpacity: 0.75
+            });
+
+
+            } else {
+              infoSasanggu.forEach(box => box.style.display = "none");
+            }
+
             if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
               e.target.bringToFront();
             }
           },
           mouseout: (e) => {
-  if (!colorOn) {
-    geojson.resetStyle(e.target);
-  } else {
-    e.target.setStyle({
-      weight: 1,
-      color: "#000",
-      });
-      }
-      }
-    })
+            if (!colorOn) {
+              geojson.resetStyle(e.target);
+            } else {
+              e.target.setStyle({
+                weight: 1,
+                color: "#000"
+              });
+            }
+            infoSasanggu.forEach(box => box.style.display = "none");
+          }
+        });
+
         // 라벨
         if (f.properties.label_lat && f.properties.label_lng) {
           L.marker([f.properties.label_lat, f.properties.label_lng], { opacity: 0 })
@@ -130,10 +177,7 @@ fetch('data/busan_dong.geojson')
     }).addTo(map);
   });
 
-function toggleAllColors() {
-  colorOn = !colorOn;
-  geojson.setStyle(colorOn ? colorStyle : defaultStyle);
-}
+// =================== 싱크홀 마커 ===================
 
 let sinkholeMarkers = [];
 let markersVisible  = false;

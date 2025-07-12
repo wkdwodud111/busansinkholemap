@@ -25,16 +25,162 @@ h1 {
 }
 
 #map {
-  width: 1000px;
+  width: 48vw;
   height: 100%;
   border: 2px solid #aaa;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 }
 
-#info-box {
-  flex: 1;
-  padding: 20px;
-  background: #f8f8f8;
-  border-left: 1px solid #ccc;
+/* 공통 인포박스 스타일 */
+.info-box {
+  position: absolute;
+  width: 400px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-sizing: border-box;
+  z-index: 1000;
+  display: none; /* 기본적으로 숨김 */
+  border-radius: 30px; /* 모서리 둥글게 하기 */
+  font-family: 'Arial', sans-serif; /* 기본 글씨체 */
 }
 
+/* test1, test2: 세로 크기 줄이기 */
+.info-box1, .info-box2 {
+  height: 200px; /* 세로 크기를 줄여줌 */
+  display: none;
+  flex-direction: column; /* 세로로 내용 배치 */
+  justify-content: center; /* 내용 중앙 정렬 */
+  align-items: center; /* 가로 중앙 정렬 */
+  padding: 10px;
+  font-family: 'Paperlogy-Bold', sans-serif; /* Paperlogy-7Bold 글씨체 적용 */
+  width: 400px; /* 가로 크기 고정 */
+}
+
+/* test3: 폰트 Paperlogy-4Regular 적용 */
+.info-box3, .info-box4 {
+  height: 420px; /* 기본 크기 유지 */
+  font-family: 'Paperlogy-Regular', sans-serif; /* Paperlogy-4Regular 글씨체 적용 */
+  padding: 10px;
+}
+
+/* 왼쪽 상단 */
+.info-box1 {
+  left: calc(50vw + 20px);
+  top: 100px;
+}
+
+/* 오른쪽 상단 */
+.info-box2 {
+  left: calc(50vw + 450px);
+  top: 100px;
+}
+
+/* 왼쪽 하단 */
+.info-box3 {
+  left: calc(50vw + 20px);
+  top: 330px;
+}
+
+/* 오른쪽 하단 */
+.info-box4 {
+  left: calc(50vw + 450px);
+  top: 330px;
+}
+
+/* "위험등급5" 스타일 */
+.info-box1 h2 {
+  color: rgba(255, 100, 100); /* 위험등급 텍스트 빨간색 */
+  font-size: 50px; /* 크게 설정 */
+  margin-top: 40px;
+  margin-left: 15px;
+  margin-bottom: 25px; /* 아래쪽 여백 */
+}
+
+/* "위험등급4" 스타일 */
+.info-box1 h3 {
+  color: rgb(255, 200, 100);
+  font-size: 50px; /* 크게 설정 */
+  margin-top: 40px;
+  margin-left: 15px;
+  margin-bottom: 25px; /* 아래쪽 여백 */
+}
+
+/* "위험등급3" 스타일 */
+.info-box1 h4 {
+  color: rgb(255, 255, 100);
+  font-size: 50px; /* 크게 설정 */
+  margin-top: 40px;
+  margin-left: 15px;
+  margin-bottom: 25px; /* 아래쪽 여백 */
+}
+
+/* "위험등급2" 스타일 */
+.info-box1 h5 {
+  color: rgb(150, 200, 100);
+  font-size: 50px; /* 크게 설정 */
+  margin-top: 40px;
+  margin-left: 15px;
+  margin-bottom: 25px; /* 아래쪽 여백 */
+}
+
+/* "위험등급1" 스타일 */
+.info-box1 h6 {
+  color: rgb(0, 150, 100);
+  font-size: 50px; /* 크게 설정 */
+  margin-top: 40px;
+  margin-left: 15px;
+  margin-bottom: 25px; /* 아래쪽 여백 */
+}
+
+/* "사고수" 스타일 */
+.info-box1 p {
+  font-size: 20px; /* 기본 크기 */
+  margin-left: 15px;
+  margin-top: -20px; /* 위쪽 여백 */
+}
+
+/* 각 항목들 스타일 */
+.info-box2 p {
+  font-size: 25px; /* 기본 크기 */
+  margin-top: 15px; /* 위쪽 여백 */
+  margin-left: 15px;
+  margin-bottom: 10px; /* 아래쪽 여백 */
+  line-height: 1.0; /* 줄 간격 */
+}
+
+/* 소제목 */
+.info-box3 h3 {
+  font-size: 25px; /* 제목 크기 */
+  margin-top: 15px; /* 위쪽 여백 */
+  margin-left: 15px;
+  margin-bottom: 10px; /* 아래쪽 여백 */
+  font-weight: bold;
+}
+
+/* 소제목아래 */
+.info-box3 p {
+  font-size: 20px; /* 기본 크기 */
+  margin-top: 15px; /* 위쪽 여백 */
+  margin-left: 15px;
+  margin-bottom: 10px; /* 아래쪽 여백 */
+  line-height: 1.0; /* 줄 간격 */
+}
+
+/* 소제목 */
+.info-box4 h3 {
+  font-size: 25px; /* 제목 크기 */
+  margin-top: 15px; /* 위쪽 여백 */
+  margin-left: 15px;
+  margin-bottom: 10px; /* 아래쪽 여백 */
+  font-weight: bold;
+}
+
+/* 소제목아래 */
+.info-box4 p {
+  font-size: 20px; /* 기본 크기 */
+  margin-top: 15px; /* 위쪽 여백 */
+  margin-left: 15px;
+  margin-bottom: 10px; /* 아래쪽 여백 */
+  line-height: 1.0; /* 줄 간격 */
+}
