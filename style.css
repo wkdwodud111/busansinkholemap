@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.dong-label {
+  font-size: 14px;
+  font-weight: bold;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: #333;
+  pointer-events: none;
+}
+
+h1 {
+  margin: 20px;
+}
+
+.container {
+  display: flex;
+  height: 85vh;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+#map {
+  width: 1000px;
+  height: 100%;
+  border: 2px solid #aaa;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+#info-box {
+  flex: 1;
+  padding: 20px;
+  background: #f8f8f8;
+  border-left: 1px solid #ccc;
+}
