@@ -13,6 +13,7 @@ const guImageMap = {
   "기장군": ["images/기장군1.png", "images/기장군2.png"],
   "부산진구": ["images/부산진구1.png"],
   "서구": ["images/서구1.png"],
+  "강서구": ["images/강서구1.png", "images/강서구2.png"],
   "중구": ["images/중구1.png", "images/중구2.png"],
   "영도구": ["images/영도구1.png"]
 };
