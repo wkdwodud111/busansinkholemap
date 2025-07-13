@@ -188,12 +188,12 @@ const districtColors = {
   dongnaegu: "#FFC864",
   yeonjegu: "#FFC864",
   suyeonggu: "#009664",
-  geumjeonggu: "#FFFF64",
+  geumjeonggu: "#96C864",
   bukgu: "#FFC864",
   gijanggun: "#009664",
   busanjingu: "#FFC864",
   donggu: "#96C864",
-  seogu: "#96C864",
+  seogu: "#FFFF64",
   junggu: "#009664",
   yeongdogu: "#96C864",
   gangseogu: "#96C864",
@@ -329,7 +329,7 @@ layer.on({
     else if (name === "금정구") {
       infoGeumjeonggu.forEach(box => box.style.display = "block");
       e.target.setStyle({
-        fillColor: '#FFFF64',
+        fillColor: '#96C864',
         fillOpacity: 0.75
       });
     }
@@ -364,7 +364,7 @@ layer.on({
     else if (name === "서구") {
       infoSeogu.forEach(box => box.style.display = "block");
       e.target.setStyle({
-        fillColor: '#96C864',
+        fillColor: '#FFFF64',
         fillOpacity: 0.75
       });
     }
