@@ -155,13 +155,6 @@
       <p>② 지오그리드 보강</p>
       <p>균열 및 침하 방지</p>
     </div>
-    <!-- 남구 사고 사진 박스 (기본 숨김) -->
-    <div id="image-box-namgu" style="display: none; text-align: center;">
-      <img id="imagenamgu1" data-src="남구1.png" alt="남구 사고 사진 1"
-          style="width: auto; height: 400px; margin-top: 100px; margin-left: 20px;">
-      <img id="imagenamgu2" data-src="남구2.jpg" alt="남구 사고 사진 2"
-          style="width: auto; height: 400px; margin-top: 100px; margin-left: 20px;">
-    </div>
 
     <!-- 해운대구 정보 박스 -->
     <div class="info-box info-box1" id="info-haeundaegu1" style="display: none;">
@@ -196,14 +189,6 @@
       <p>고심도 보강, 강도 확보</p>
       <p>② GPR 및 IoT 계측 시스템</p>
       <p>공간 탐지 및 실시간 위험관리</p>
-    </div>
-
-    <!-- 해운대구 사고 사진 박스 (기본 숨김) -->
-    <div id="image-box-haeundaegu" style="display: none; text-align: center;">
-      <img id="imagehaeundaegu1" data-src="해운대구1.png" alt="해운대구 사고 사진 1"
-          style="width: auto; height: 400px; margin-top: 100px; margin-left: 20px;">
-      <img id="imagehaeundaegu2" data-src="해운대구2.jpg" alt="해운대구 사고 사진 2"
-          style="width: auto; height: 400px; margin-top: 100px; margin-left: 20px;">
     </div>
 
     <!-- 동래구 정보 박스 -->
@@ -312,13 +297,6 @@
       <p>② 흙막이 그라우팅</p>
       <p>보수 및 하중 확산</p>
     </div>
-    <!-- 수영구 사고 사진 박스 (기본 숨김) -->
-    <div id="image-box-suyeonggu" style="display: none; text-align: center;">
-      <img id="imagesuyeonggu1" data-src="수영구1.png" alt="수영구 사고 사진 1"
-          style="width: auto; height: 450px; margin-top: 100px; margin-left: 20px;">
-      <img id="imagesuyeonggu2" data-src="수영구2.jpg" alt="수영구 사고 사진 2"
-          style="width: auto; height: 450px; margin-top: 100px; margin-left: 20px;">
-    </div>
     <!-- 금정구 정보 박스 -->
     <div class="info-box info-box1" id="info-geumjeonggu1" style="display: none;">
       <h5>위험등급 2</h5>
@@ -423,14 +401,6 @@
       <p>스톤 컬럼 등으로 지지력 확보</p>
       <p>② 마이크로파일 시공</p>
       <p>국부 지지력 강화</p>
-    </div>
-
-    <!-- 기장군 사고 사진 박스 (기본 숨김) -->
-    <div id="image-box-gijanggun" style="display: none; text-align: center;">
-      <img id="imagegijanggun1" data-src="기장군1.png" alt="기장군 사고 사진 1"
-          style="width: auto; height: 450px; margin-top: 100px; margin-left: 20px;">
-      <img id="imagegijanggun2" data-src="기장군2.png" alt="기장군 사고 사진 2"
-          style="width: auto; height: 450px; margin-top: 100px; margin-left: 20px;">
     </div>
 
     <!-- 부산진구 정보 박스 -->
@@ -569,13 +539,6 @@
       <p>② CIP 파일 공법</p>
       <p>노후 기반 위에 직접 천공 및 보강</p>
     </div>
-    <!-- 중구 사고 사진 박스 -->
-    <div id="image-box1" style="display: none; text-align: center;">
-      <img id="imagejunggu1" data-src="중구1.png" alt="중구 사고 사진 1"
-          style="width: auto; height: 380px; margin-top: 200px; margin-left: 20px;">
-      <img id="imagejunggu2" data-src="중구2.jpg" alt="중구 사고 사진 2"
-          style="width: auto; height: 380px; margin-top: 200px; margin-left: 20px;">
-    </div>
 
     <!-- 영도구 정보 박스 -->
     <div class="info-box info-box1" id="info-yeongdogu1" style="display: none;">
@@ -651,12 +614,6 @@
       <p>- 현 17.5억 원 → 지반보강·모니터링 확대 필요</p>
     </div>
 
-    <!-- 강서구(3) 사고 사진 박스 (기본 숨김) -->
-    <div id="image-box-gangseogu" style="display: none; text-align: center;">
-      <img id="imagegangseogu1" data-src="강서구1.jpg" alt="강서구 사고 사진 1"
-          style="width: auto; height: 450px; margin-top: 100px; margin-left: 20px;">
-    </div>
-
     <div id="risk-info-box" style="
     position: absolute;
     top: 80px;
@@ -701,7 +658,11 @@
     → 노후 기반시설 영향으로 싱크홀 확산 가능성 있음
   </div>
 
-
+  <div id="gu-image-box" style="display: none; position: fixed; top: 100px; right: 20vw;">
+    <img id="guImage1" src="" style="width: 250px; height: auto; margin-bottom: 10px;"><br>
+    <img id="guImage2" src="" style="width: 250px;">
+  </div>
+  
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="main.js"></script>
 </body>

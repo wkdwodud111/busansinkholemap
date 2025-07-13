@@ -1,3 +1,24 @@
+document.getElementById("gu-image-box").style.display = "none";
+
+const guImageMap = {
+  "사상구": ["images/사상구1.png", "images/사상구2.png"],
+  "사하구": ["images/사하구1.png", "images/사하구2.png"],
+  "남구": ["images/남구1.png", "images/남구2.png"],
+  "해운대구": ["images/해운대구1.png", "images/해운대구2.png"],
+  "동래구": ["images/동래구1.png"],
+  "연제구": ["images/연제구1.png", "images/연제구2.png"],
+  "수영구": ["images/수영구1.png", "images/수영구2.png"],
+  "금정구": ["images/금정구1.png"],
+  "북구": ["images/북구1.png"],
+  "기장군": ["images/기장군1.png", "images/기장군2.png"],
+  "부산진구": ["images/부산진구1.png", "images/부산진구2.png"],
+  "동구": ["images/동구1.png", "images/동구2.png"],
+  "서구": ["images/서구1.png", "images/서구2.png"],
+  "중구": ["images/중구1.png", "images/중구2.png"],
+  "강서구": ["images/강서구1.png"],
+  "영도구": ["images/영도구1.png", "images/영도구2.png"]
+};
+
 // =================== 각 구별 인포박스 정의 ===================
 
 // 사상구 인포 ------------------------------------------------------------------
@@ -370,9 +391,11 @@ layer.on({
       //e.target.bringToFront();
     }
   },
+
   mouseout: (e) => {
     if (!colorOn) {
       geojson.resetStyle(e.target);
+      hideAllInfoBoxes(); 
     } else {
       e.target.setStyle({
         weight: 1,
@@ -380,26 +403,36 @@ layer.on({
       });
     }
 
-    infoSasanggu.forEach(box => box.style.display = "none");
-    infoSahagu.forEach(box => box.style.display = "none");
-    infoNamgu.forEach(box => box.style.display = "none");
-    infoHaeundaegu.forEach(box => box.style.display = "none");
-    infoDongnaegu.forEach(box => box.style.display = "none");
-    infoYeonjegu.forEach(box => box.style.display = "none");
-    infoSuyeonggu.forEach(box => box.style.display = "none");
+    if (guImageMap[name]) {
+      layer.on("click", () => {
+        const imageBox = document.getElementById("gu-image-box");
+        const image1 = document.getElementById("guImage1");
+        const image2 = document.getElementById("guImage2");
+        const imageList = guImageMap[name];
 
-    infoGeumjeonggu.forEach(box => box.style.display = "none");
-    infoBukgu.forEach(box => box.style.display = "none");
-    infoGijanggun.forEach(box => box.style.display = "none");
-    infoBusanjingu.forEach(box => box.style.display = "none");
-    infoDonggu.forEach(box => box.style.display = "none");
-    infoSeogu.forEach(box => box.style.display = "none");
-    infoJunggu.forEach(box => box.style.display = "none");
-    infoGangseogu.forEach(box => box.style.display = "none");
-    infoYeongdogu.forEach(box => box.style.display = "none");
+        if (imageBox.style.display !== "none" && imageBox.style.display !== "") {
+          imageBox.style.display = "none";
+        } else {
+          image1.src = imageList[0];
+          image1.style.display = "block";
+
+          if (imageList.length > 1) {
+            image2.src = imageList[1];
+            image2.style.display = "block";
+          } else {
+            image2.style.display = "none";
+          }
+
+          imageBox.style.display = "block";
+        }
+
+        document.querySelectorAll(".info-box").forEach(box => {
+          box.style.display = "none";
+        });
+      });
+    }
   }
 });
-
         // 라벨
         if (f.properties.label_lat && f.properties.label_lng) {
           L.marker([f.properties.label_lat, f.properties.label_lng], { opacity: 0 })
@@ -529,4 +562,25 @@ function toggleRiskInfo() {
   } else {
     infoBox.style.display = "none";
   }
+}
+
+//사상구 이미지
+const sasanggu = document.getElementById("sasanggu");
+
+if (sasanggu) {
+  sasanggu.addEventListener("click", () => {
+    const imageBox = document.getElementById("sasanggu-image-box");
+    const image1   = document.getElementById("sasangguImage1");
+    const image2   = document.getElementById("sasangguImage2");
+
+    image1.src = "images/사상구1.png";
+    image2.src = "images/사상구2.png";
+
+    imageBox.style.display =
+      (imageBox.style.display === "block") ? "none" : "block";
+
+    document.querySelectorAll(".info-box").forEach(box => {
+      box.style.display = "none";
+    });
+  });
 }
