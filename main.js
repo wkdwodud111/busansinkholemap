@@ -211,6 +211,9 @@ function toggleAllColors() {
   geojson.setStyle(colorOn ? colorStyle : defaultStyle);
 }
 
+map.createPane("customPopupPane");
+map.getPane("customPopupPane").style.zIndex = 850;
+
 map.createPane("markerPane");
 map.getPane("markerPane").style.zIndex = 800;
 
@@ -467,16 +470,26 @@ function toggleMarkers () {
           color: '#ff0000',
           fillColor: '#ff6666',
           fillOpacity: 0.9
-        })
-          .addTo(map)
-          .bindPopup(
-            `<div style="font-size:14px;">
-               <strong>${p.name}</strong><br>
-               날짜: ${p.date}<br>
-               크기: ${p.size}<br>
-               깊이: ${p.depth}
-             </div>`
-          );
+        }).addTo(map);
+
+        m.on('click', () => {
+          const popup = L.popup({
+            pane: 'customPopupPane',
+            autoPan: true,
+            autoPanPadding: [10, 10]
+          })
+            .setLatLng([p.lat, p.lng])
+            .setContent(`
+              <div style="font-size:14px;">
+                <strong>${p.name}</strong><br>
+                날짜: ${p.date}<br>
+                크기: ${p.size}<br>
+                깊이: ${p.depth}
+              </div>
+            `);
+          map.openPopup(popup);
+        });
+
         sinkholeMarkers.push(m);
       });
       markersVisible = true;
