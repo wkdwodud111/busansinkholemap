@@ -191,8 +191,14 @@ function toggleAllColors() {
   geojson.setStyle(colorOn ? colorStyle : defaultStyle);
 }
 
-map.createPane('markerPane');
-map.getPane('markerPane').style.zIndex = 650;
+map.createPane("markerPane");
+map.getPane("markerPane").style.zIndex = 800;
+
+map.createPane("subwayPane");
+map.getPane("subwayPane").style.zIndex = 700;
+
+map.createPane("dongPane");
+map.getPane("dongPane").style.zIndex = 600;
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '© OpenStreetMap contributors'
@@ -233,6 +239,7 @@ fetch('data/busan_dong.geojson')
   .then(res => res.json())
   .then(dongJSON => {
     geojson = L.geoJSON(dongJSON, {
+      pane: "dongPane",
       style: defaultStyle,
       onEachFeature: (f, layer) => {
         const name = f.properties.SIGUNGU_NM;
@@ -360,7 +367,7 @@ layer.on({
       });
     }
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-      e.target.bringToFront();
+      //e.target.bringToFront();
     }
   },
   mouseout: (e) => {
@@ -446,5 +453,80 @@ function toggleMarkers () {
     sinkholeMarkers.forEach(m => map.removeLayer(m));
     sinkholeMarkers = [];
     markersVisible  = false;
+  }
+}
+
+let subwayLayer;
+
+function toggleSubway() {
+  const legend = document.getElementById("subway-legend");
+  if (subwayLayer) {
+    map.removeLayer(subwayLayer);
+    subwayLayer = null;
+
+    if (legend) legend.style.display = "none";
+  } else {
+    subwayLayer = L.layerGroup();  // 그룹 레이어로 생성
+
+    const lineColors = {
+      "부산 도시철도 1호선": "#f58220",   // 주황
+      "부산 도시철도 2호선": "#00a84f",   // 초록
+      "부산 도시철도 3호선": "#d9903d",   // 갈색
+      "부산 경량도시철도 4호선": "#0078c8", // 파랑
+      "부산김해경전철": "#5e4485",         // 보라
+      "동해선": "#1e90ff"                 // 남색
+    };
+
+    // 노선들 추가
+    ['line1','line2','line3','line4','line5','line6'].forEach(fname => {
+      fetch(`data/${fname}.geojson`)
+        .then(r => r.json())
+        .then(geo => {
+          const layer = L.geoJSON(geo, {
+        pane: 'subwayPane',
+            style: f => ({
+              color: lineColors[f.properties.LINE_NM] || '#666',
+              weight: 4
+            })
+          });
+          subwayLayer.addLayer(layer);
+        });
+    });
+
+// 정거장 추가
+fetch('data/busan_subway.geojson')
+  .then(r => r.json())
+  .then(geo => {
+    const stationLayer = L.geoJSON(geo, {
+      pane: "subwayPane",
+      pointToLayer: (f, latlng) => {
+        const col = lineColors[f.properties.LINE_NM] || "#000";
+        return L.circleMarker(latlng, {
+          pane: "subwayPane",   // ★ 반드시 명시 ★
+          radius: 4,
+          color: "#000",
+          weight: 1,
+          fillColor: col,
+          fillOpacity: 1
+        });
+      },
+      onEachFeature: (f, layer) => {
+        layer.bindPopup(`<b>${f.properties.STN_KOR}</b><br>${f.properties.LINE_NM}`);
+      }
+    });
+    subwayLayer.addLayer(stationLayer);
+  });
+
+  subwayLayer.addTo(map);
+  if (legend) legend.style.display = "block";
+  }
+}
+
+function toggleRiskInfo() {
+  const infoBox = document.getElementById("risk-info-box");
+  if (infoBox.style.display === "none") {
+    infoBox.style.display = "block";
+  } else {
+    infoBox.style.display = "none";
   }
 }

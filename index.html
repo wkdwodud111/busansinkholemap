@@ -22,12 +22,24 @@
     <img src="warning.png" alt="위험 등급" style="width: 250px; height: auto;">
   </div>
 
-  <div style="position: absolute; top: 30px; left: 400px; z-index: 1000;">
+  <div style="position: absolute; top: 35px; left: 340px; z-index: 1000;">
     <button onclick="toggleMarkers()">싱크홀 사고 위치 표시</button>
   </div>
 
-  <div style="position: absolute; top: 30px; left: 550px; z-index: 1000;">
-  <button onclick="toggleAllColors()">전체 위험등급 표시</button>
+  <div style="position: absolute; top: 35px; left: 490px; z-index: 1000;">
+    <button onclick="toggleAllColors()">전체 위험등급 표시</button>
+  </div>
+
+  <div style="position:absolute; top:35px; left:622.5px; z-index:1000;">
+    <button onclick="toggleSubway()">지하철 노선도 표시</button>
+  </div>
+
+  <div id="subway-legend" style="position: absolute; top: 160px; left: 30px; z-index: 900; display: none;">
+    <img src="부산 지하철.png" alt="지하철 노선도" style="width: 200px; border: 1px solid #aaa;">
+  </div>
+
+  <div style="position:absolute; top:35px; left:755px; z-index:1000;">
+    <button onclick="toggleRiskInfo()">위험도 산출 기준</button>
   </div>
 
    <!-- 사상구 정보 박스 -->
@@ -645,13 +657,49 @@
           style="width: auto; height: 450px; margin-top: 100px; margin-left: 20px;">
     </div>
 
+    <div id="risk-info-box" style="
+    position: absolute;
+    top: 80px;
+    right: 5vw;
+    width: 700px;
+    background: #fffdf0;
+    border: 1px solid #999;
+    padding: 15px;
+    font-size: 14px;
+    line-height: 1.6;
+    z-index: 900;
+    display: none;
+   ">
+    <h4 style="margin-top: 0;">위험도 산출 기준</h4>
+    <p>싱크홀 위험도는 단순 사고 수뿐 아니라 다양한 도시 지반 요인을 종합적으로 평가하여 산정됩니다.<br>
+    아래 항목들을 정량화하고 가중치를 부여해, <strong>1등급(가장 안전)</strong>부터 <strong>5등급(가장 위험)</strong>까지 분류합니다.</p>
 
+    <strong>지반 특성</strong><br>
+    - 지질 분포 (가중치 2)<br>
+    - 토사층 두께 (가중치 1)<br>
+    - 충적층 두께 (가중치 2)<br>
+    → 땅의 구성물(모래, 자갈, 점토 등)과 이들의 두께, 불균질성 여부를 분석하여 싱크홀 취약성 판단<br><br>
 
+    <strong>지하수 영향</strong><br>
+    - 지하수위 (가중치 2)<br>
+    - 수위 저하량 (가중치 2)<br>
+    - 토양 침투성/투수계수 (가중치 1)<br>
+    → 물 빠짐이 빠르고 지하수위 변화가 큰 지역일수록 싱크홀 발생 가능성 높음<br><br>
 
+    <strong>지하철 영향도</strong><br>
+    - 노선 분포도 (가중치 2)<br>
+    - 정거장 밀집도 (가중치 1)<br>
+    → 지하수 배출량이 많은 지하철 노선 인접 지역은 상대적으로 위험<br><br>
 
+    <strong>싱크홀 사고 이력</strong><br>
+    - 사고 밀집도 (가중치 2)<br>
+    - 사고 규모 (가중치 1)<br>
+    → 반복 발생 또는 대형 사고 지역은 추가 발생 가능성 존재<br><br>
 
-
-
+    <strong>노후건물 분포</strong><br>
+    - 30년 이상 노후 건물 밀집도 (가중치 1)<br>
+    → 노후 기반시설 영향으로 싱크홀 확산 가능성 있음
+  </div>
 
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
