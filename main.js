@@ -1,18 +1,132 @@
 // =================== 각 구별 인포박스 정의 ===================
 
-// 사상구 시작 ------------------------------------------------------------------
+// 사상구 인포 ------------------------------------------------------------------
 const infoSasanggu = [
   document.getElementById("info-sasanggu1"),
   document.getElementById("info-sasanggu2"),
   document.getElementById("info-sasanggu3"),
   document.getElementById("info-sasanggu4")
 ];
-// 사상구 끝 --------------------------------------------------------------------
 
-// ↓ 여기에 사하구, 남구, ... 추가하면 됨 (아래처럼)
-// const infoSahagu = [document.getElementById("info-sahagu1"), ...];
-// const infoNamgu = [...];
+// 사하구 인포------------------------------------------------------------------
+const infoSahagu = [
+  document.getElementById("info-sahagu1"),
+  document.getElementById("info-sahagu2"),
+  document.getElementById("info-sahagu3"),
+  document.getElementById("info-sahagu4"),
+];
 
+// 남구 인포------------------------------------------------------------------
+const infoNamgu = [
+  document.getElementById("info-namgu1"),
+  document.getElementById("info-namgu2"),
+  document.getElementById("info-namgu3"),
+  document.getElementById("info-namgu4"),
+];
+
+// 해운대구 인포------------------------------------------------------------------
+const infoHaeundaegu = [
+  document.getElementById("info-haeundaegu1"),
+  document.getElementById("info-haeundaegu2"),
+  document.getElementById("info-haeundaegu3"),
+  document.getElementById("info-haeundaegu4"),
+];
+
+// 동래구 인포------------------------------------------------------------------
+const infoDongnaegu = [
+  document.getElementById("info-dongnaegu1"),
+  document.getElementById("info-dongnaegu2"),
+  document.getElementById("info-dongnaegu3"),
+  document.getElementById("info-dongnaegu4"),
+];
+
+// 연제구 인포------------------------------------------------------------------
+const infoYeonjegu = [
+  document.getElementById("info-yeonjegu1"),
+  document.getElementById("info-yeonjegu2"),
+  document.getElementById("info-yeonjegu3"),
+  document.getElementById("info-yeonjegu4"),
+];
+
+// 수영구 인포------------------------------------------------------------------
+const infoSuyeonggu = [
+  document.getElementById("info-suyeonggu1"),
+  document.getElementById("info-suyeonggu2"),
+  document.getElementById("info-suyeonggu3"),
+  document.getElementById("info-suyeonggu4"),
+];
+
+// 금정구 인포------------------------------------------------------------------
+const infoGeumjeonggu = [
+  document.getElementById("info-geumjeonggu1"),
+  document.getElementById("info-geumjeonggu2"),
+  document.getElementById("info-geumjeonggu3"),
+  document.getElementById("info-geumjeonggu4"),
+];
+
+// 북구 인포------------------------------------------------------------------
+const infoBukgu = [
+  document.getElementById("info-bukgu1"),
+  document.getElementById("info-bukgu2"),
+  document.getElementById("info-bukgu3"),
+  document.getElementById("info-bukgu4"),
+];
+
+// 기장군 인포------------------------------------------------------------------
+const infoGijanggun = [
+  document.getElementById("info-gijanggun1"),
+  document.getElementById("info-gijanggun2"),
+  document.getElementById("info-gijanggun3"),
+  document.getElementById("info-gijanggun4"),
+];
+
+// 부산진구 인포------------------------------------------------------------------
+const infoBusanjingu = [
+  document.getElementById("info-busanjingu1"),
+  document.getElementById("info-busanjingu2"),
+  document.getElementById("info-busanjingu3"),
+  document.getElementById("info-busanjingu4"),
+];
+
+// 동구 인포------------------------------------------------------------------
+const infoDonggu = [
+  document.getElementById("info-donggu1"),
+  document.getElementById("info-donggu2"),
+  document.getElementById("info-donggu3"),
+  document.getElementById("info-donggu4"),
+];
+
+// 서구 인포------------------------------------------------------------------
+const infoSeogu = [
+  document.getElementById("info-seogu1"),
+  document.getElementById("info-seogu2"),
+  document.getElementById("info-seogu3"),
+  document.getElementById("info-seogu4"),
+];
+
+// 중구 인포------------------------------------------------------------------
+const infoJunggu = [
+  document.getElementById("info-junggu1"),
+  document.getElementById("info-junggu2"),
+  document.getElementById("info-junggu3"),
+  document.getElementById("info-junggu4"),
+];
+
+// 강서구 인포------------------------------------------------------------------
+const infoGangseogu = [
+  document.getElementById("info-gangseogu1"),
+  document.getElementById("info-gangseogu2"),
+  document.getElementById("info-gangseogu3"),
+  document.getElementById("info-gangseogu4"),
+];
+
+// 영도구 인포------------------------------------------------------------------
+const infoYeongdogu = [
+  document.getElementById("info-yeongdogu1"),
+  document.getElementById("info-yeongdogu2"),
+  document.getElementById("info-yeongdogu3"),
+  document.getElementById("info-yeongdogu4"),
+];
 
 // =================== 지도 및 GeoJSON 처리 ===================
 
@@ -123,44 +237,161 @@ fetch('data/busan_dong.geojson')
       onEachFeature: (f, layer) => {
         const name = f.properties.SIGUNGU_NM;
 
-        layer.on({
-          mouseover: (e) => {
-            e.target.setStyle({
-              weight: 3,
-              color: "#666",
-              fillOpacity: 0.75
-            });
+layer.on({
+  mouseover: (e) => {
+    e.target.setStyle({
+      weight: 3,
+      color: "#666",
+      fillOpacity: 0.75
+    });
 
-            // 사상구 인포박스 표시
-            if (name === "사상구") {
-              hideAllInfoBoxes();
-              infoSasanggu.forEach(box => box.style.display = "block");
-                e.target.setStyle({
-                fillColor: '#FF6464',
-                fillOpacity: 0.75
-            });
+    hideAllInfoBoxes();
 
+    if (name === "사상구") {
+      infoSasanggu.forEach(box => box.style.display = "block");
+      e.target.setStyle({
+        fillColor: '#FF6464',
+        fillOpacity: 0.75
+      });
+    }
+    else if (name === "사하구") {
+      infoSahagu.forEach(box => box.style.display = "block");
+      e.target.setStyle({
+        fillColor: '#FFC864',
+        fillOpacity: 0.75
+      });
+    }
+    else if (name === "남구") {
+      infoNamgu.forEach(box => box.style.display = "block");
+      e.target.setStyle({
+        fillColor: '#FFFF64',
+        fillOpacity: 0.75
+      });
+    }
+    else if (name === "해운대구") {
+      infoHaeundaegu.forEach(box => box.style.display = "block");
+      e.target.setStyle({
+        fillColor: '#96C864',
+        fillOpacity: 0.75
+      });
+    }
+    else if (name === "동래구") {
+      infoDongnaegu.forEach(box => box.style.display = "block");
+      e.target.setStyle({
+        fillColor: '#FFC864',
+        fillOpacity: 0.75
+      });
+    }
+    else if (name === "연제구") {
+      infoYeonjegu.forEach(box => box.style.display = "block");
+      e.target.setStyle({
+        fillColor: '#FFC864',
+        fillOpacity: 0.75
+      });
+    }
+    else if (name === "수영구") {
+      infoSuyeonggu.forEach(box => box.style.display = "block");
+      e.target.setStyle({
+        fillColor: '#009664',
+        fillOpacity: 0.75
+      });
+    }
+    else if (name === "금정구") {
+      infoGeumjeonggu.forEach(box => box.style.display = "block");
+      e.target.setStyle({
+        fillColor: '#96C864',
+        fillOpacity: 0.75
+      });
+    }
+    else if (name === "북구") {
+      infoBukgu.forEach(box => box.style.display = "block");
+      e.target.setStyle({
+        fillColor: '#FFC864',
+        fillOpacity: 0.75
+      });
+    }
+    else if (name === "기장군") {
+      infoGijanggun.forEach(box => box.style.display = "block");
+      e.target.setStyle({
+        fillColor: '#009664',
+        fillOpacity: 0.75
+      });
+    }
+    else if (name === "부산진구") {
+      infoBusanjingu.forEach(box => box.style.display = "block");
+      e.target.setStyle({
+        fillColor: '#FFFF64',
+        fillOpacity: 0.75
+      });
+    }
+    else if (name === "동구") {
+      infoDonggu.forEach(box => box.style.display = "block");
+      e.target.setStyle({
+        fillColor: '#96C864',
+        fillOpacity: 0.75
+      });
+    }
+    else if (name === "서구") {
+      infoSeogu.forEach(box => box.style.display = "block");
+      e.target.setStyle({
+        fillColor: '#FFFF64',
+        fillOpacity: 0.75
+      });
+    }
+    else if (name === "중구") {
+      infoJunggu.forEach(box => box.style.display = "block");
+      e.target.setStyle({
+        fillColor: '#009664',
+        fillOpacity: 0.75
+      });
+    }
+    else if (name === "강서구") {
+      infoGangseogu.forEach(box => box.style.display = "block");
+      e.target.setStyle({
+        fillColor: '#96C864',
+        fillOpacity: 0.75
+      });
+    }
+    else if (name === "영도구") {
+      infoYeongdogu.forEach(box => box.style.display = "block");
+      e.target.setStyle({
+        fillColor: '#96C864',
+        fillOpacity: 0.75
+      });
+    }
+    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+      e.target.bringToFront();
+    }
+  },
+  mouseout: (e) => {
+    if (!colorOn) {
+      geojson.resetStyle(e.target);
+    } else {
+      e.target.setStyle({
+        weight: 1,
+        color: "#000"
+      });
+    }
 
-            } else {
-              infoSasanggu.forEach(box => box.style.display = "none");
-            }
+    infoSasanggu.forEach(box => box.style.display = "none");
+    infoSahagu.forEach(box => box.style.display = "none");
+    infoNamgu.forEach(box => box.style.display = "none");
+    infoHaeundaegu.forEach(box => box.style.display = "none");
+    infoDongnaegu.forEach(box => box.style.display = "none");
+    infoYeonjegu.forEach(box => box.style.display = "none");
+    infoSuyeonggu.forEach(box => box.style.display = "none");
 
-            if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-              e.target.bringToFront();
-            }
-          },
-          mouseout: (e) => {
-            if (!colorOn) {
-              geojson.resetStyle(e.target);
-            } else {
-              e.target.setStyle({
-                weight: 1,
-                color: "#000"
-              });
-            }
-            infoSasanggu.forEach(box => box.style.display = "none");
-          }
-        });
+    infoGeumjeonggu.forEach(box => box.style.display = "none");
+    infoBukgu.forEach(box => box.style.display = "none");
+    infoGijanggun.forEach(box => box.style.display = "none");
+    infoBusanjingu.forEach(box => box.style.display = "none");
+    infoDonggu.forEach(box => box.style.display = "none");
+    infoSeogu.forEach(box => box.style.display = "none");
+    infoJunggu.forEach(box => box.style.display = "none");
+    infoGangseogu.forEach(box => box.style.display = "none");
+    infoYeongdogu.forEach(box => box.style.display = "none");
+  }
+});
 
         // 라벨
         if (f.properties.label_lat && f.properties.label_lng) {

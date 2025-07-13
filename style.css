@@ -13,6 +13,23 @@ body {
   pointer-events: none;
 }
 
+/* 폰트 스타일 */
+@font-face {
+  font-family: 'Paperlogy-Bold';
+  src: url('https://wkdwodud111.github.io/busansinkholemap/fonts/Paperlogy-4Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+@font-face {
+  font-family: 'Paperlogy-Regular';
+  src: url('https://wkdwodud111.github.io/busansinkholemap/fonts/Paperlogy-4Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 h1 {
   margin: 20px;
 }
@@ -45,22 +62,22 @@ h1 {
   font-family: 'Arial', sans-serif; /* 기본 글씨체 */
 }
 
-/* test1, test2: 세로 크기 줄이기 */
+/* test1, test2 */
 .info-box1, .info-box2 {
-  height: 200px; /* 세로 크기를 줄여줌 */
+  height: 200px;
   display: none;
-  flex-direction: column; /* 세로로 내용 배치 */
-  justify-content: center; /* 내용 중앙 정렬 */
-  align-items: center; /* 가로 중앙 정렬 */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 10px;
-  font-family: 'Paperlogy-Bold', sans-serif; /* Paperlogy-7Bold 글씨체 적용 */
-  width: 400px; /* 가로 크기 고정 */
+  font-family: 'Paperlogy-Bold', sans-serif;
+  width: 400px;
 }
 
-/* test3: 폰트 Paperlogy-4Regular 적용 */
+/* test3, test4*/
 .info-box3, .info-box4 {
-  height: 420px; /* 기본 크기 유지 */
-  font-family: 'Paperlogy-Regular', sans-serif; /* Paperlogy-4Regular 글씨체 적용 */
+  height: 420px;
+  font-family: 'Paperlogy-Regular', sans-serif;
   padding: 10px;
 }
 
@@ -149,7 +166,7 @@ h1 {
   line-height: 1.0; /* 줄 간격 */
 }
 
-/* 소제목 */
+/* 3소제목 */
 .info-box3 h3 {
   font-size: 25px; /* 제목 크기 */
   margin-top: 15px; /* 위쪽 여백 */
@@ -158,7 +175,7 @@ h1 {
   font-weight: bold;
 }
 
-/* 소제목아래 */
+/* 3소제목아래 */
 .info-box3 p {
   font-size: 20px; /* 기본 크기 */
   margin-top: 15px; /* 위쪽 여백 */
@@ -167,7 +184,7 @@ h1 {
   line-height: 1.0; /* 줄 간격 */
 }
 
-/* 소제목 */
+/* 4소제목 */
 .info-box4 h3 {
   font-size: 25px; /* 제목 크기 */
   margin-top: 15px; /* 위쪽 여백 */
@@ -176,7 +193,7 @@ h1 {
   font-weight: bold;
 }
 
-/* 소제목아래 */
+/* 4소제목아래 */
 .info-box4 p {
   font-size: 20px; /* 기본 크기 */
   margin-top: 15px; /* 위쪽 여백 */
