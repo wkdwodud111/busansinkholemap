@@ -11,12 +11,11 @@ const guImageMap = {
   "금정구": ["images/금정구1.png"],
   "북구": ["images/북구1.png"],
   "기장군": ["images/기장군1.png", "images/기장군2.png"],
-  "부산진구": ["images/부산진구1.png", "images/부산진구2.png"],
-  "동구": ["images/동구1.png", "images/동구2.png"],
-  "서구": ["images/서구1.png", "images/서구2.png"],
+  "부산진구": ["images/부산진구1.png"],
+  "서구": ["images/서구1.png"],
   "중구": ["images/중구1.png", "images/중구2.png"],
   "강서구": ["images/강서구1.png"],
-  "영도구": ["images/영도구1.png", "images/영도구2.png"]
+  "영도구": ["images/영도구1.png"]
 };
 
 // =================== 각 구별 인포박스 정의 ===================
@@ -192,7 +191,7 @@ const districtColors = {
   geumjeonggu: "#96C864",
   bukgu: "#FFC864",
   gijanggun: "#009664",
-  busanjingu: "#FFFF64",
+  busanjingu: "#FFC864",
   donggu: "#96C864",
   seogu: "#FFFF64",
   junggu: "#009664",
@@ -348,7 +347,7 @@ layer.on({
     else if (name === "부산진구") {
       infoBusanjingu.forEach(box => box.style.display = "block");
       e.target.setStyle({
-        fillColor: '#FFFF64',
+        fillColor: '#FFC864',
         fillOpacity: 0.75
       });
     }
