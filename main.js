@@ -9,12 +9,11 @@ const guImageMap = {
   "연제구": ["images/연제구1.png", "images/연제구2.png"],
   "수영구": ["images/수영구1.png", "images/수영구2.png"],
   "금정구": ["images/금정구1.png"],
-  "북구": ["images/북구1.png"],
+  "북구": ["images/북구1.png", "images/북구2.png"],
   "기장군": ["images/기장군1.png", "images/기장군2.png"],
   "부산진구": ["images/부산진구1.png"],
   "서구": ["images/서구1.png"],
   "중구": ["images/중구1.png", "images/중구2.png"],
-  "강서구": ["images/강서구1.png"],
   "영도구": ["images/영도구1.png"]
 };
 
@@ -574,25 +573,4 @@ function toggleRiskInfo() {
   } else {
     infoBox.style.display = "none";
   }
-}
-
-//사상구 이미지
-const sasanggu = document.getElementById("sasanggu");
-
-if (sasanggu) {
-  sasanggu.addEventListener("click", () => {
-    const imageBox = document.getElementById("sasanggu-image-box");
-    const image1   = document.getElementById("sasangguImage1");
-    const image2   = document.getElementById("sasangguImage2");
-
-    image1.src = "images/사상구1.png";
-    image2.src = "images/사상구2.png";
-
-    imageBox.style.display =
-      (imageBox.style.display === "block") ? "none" : "block";
-
-    document.querySelectorAll(".info-box").forEach(box => {
-      box.style.display = "none";
-    });
-  });
 }

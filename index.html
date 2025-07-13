@@ -22,15 +22,15 @@
     <img src="warning.png" alt="위험 등급" style="width: 250px; height: auto;">
   </div>
 
-  <div style="position: absolute; top: 35px; left: 340px; z-index: 1000;">
+  <div style="position: absolute; top: 30px; left: 331px; z-index: 1000;">
     <button onclick="toggleMarkers()">싱크홀 사고 위치 표시</button>
   </div>
 
-  <div style="position: absolute; top: 35px; left: 490px; z-index: 1000;">
+  <div style="position: absolute; top: 30px; left: 480.5px; z-index: 1000;">
     <button onclick="toggleAllColors()">전체 위험등급 표시</button>
   </div>
 
-  <div style="position:absolute; top:35px; left:622.5px; z-index:1000;">
+  <div style="position:absolute; top:30px; left:616.5px; z-index:1000;">
     <button onclick="toggleSubway()">지하철 노선도 표시</button>
   </div>
 
@@ -38,8 +38,8 @@
     <img src="부산 지하철.png" alt="지하철 노선도" style="width: 200px; border: 1px solid #aaa;">
   </div>
 
-  <div style="position:absolute; top:35px; left:755px; z-index:1000;">
-    <button onclick="toggleRiskInfo()">위험도 산출 기준</button>
+  <div style="position:absolute; top:30px; left:752.5px; z-index:1000;">
+    <button onclick="toggleRiskInfo()">위험도 기준</button>
   </div>
 
    <!-- 사상구 정보 박스 -->
@@ -680,9 +680,9 @@
     → 노후 기반시설 영향으로 싱크홀 확산 가능성 있음
   </div>
 
-  <div id="gu-image-box" style="display: none; position: fixed; top: 100px; right: 20vw;">
-    <img id="guImage1" src="" style="width: 250px; height: auto; margin-bottom: 10px;"><br>
-    <img id="guImage2" src="" style="width: 250px;">
+  <div id="gu-image-box" style="display: none; position: fixed; top: 100px; right: 20vw; display: flex; gap: 10px;">
+    <div id="guImageBox1"><img id="guImage1" src="" style="width: auto; height: 400px;"></div>
+    <div id="guImageBox2"><img id="guImage2" src="" style="width: auto; height: 400px;"></div>
   </div>
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>

@@ -107,97 +107,131 @@ h1 {
 
 /* "위험등급5" 스타일 */
 .info-box1 h2 {
-  color: rgba(255, 100, 100); /* 위험등급 텍스트 빨간색 */
-  font-size: 50px; /* 크게 설정 */
+  color: rgba(255, 100, 100);
+  font-size: 50px;
   margin-top: 40px;
   margin-left: 15px;
-  margin-bottom: 25px; /* 아래쪽 여백 */
+  margin-bottom: 25px;
 }
 
 /* "위험등급4" 스타일 */
 .info-box1 h3 {
   color: rgb(255, 200, 100);
-  font-size: 50px; /* 크게 설정 */
+  font-size: 50px;
   margin-top: 40px;
   margin-left: 15px;
-  margin-bottom: 25px; /* 아래쪽 여백 */
+  margin-bottom: 25px;
 }
 
 /* "위험등급3" 스타일 */
 .info-box1 h4 {
   color: rgb(255, 255, 100);
-  font-size: 50px; /* 크게 설정 */
+  font-size: 50px;
   margin-top: 40px;
   margin-left: 15px;
-  margin-bottom: 25px; /* 아래쪽 여백 */
+  margin-bottom: 25px;
 }
 
 /* "위험등급2" 스타일 */
 .info-box1 h5 {
   color: rgb(150, 200, 100);
-  font-size: 50px; /* 크게 설정 */
+  font-size: 50px;
   margin-top: 40px;
   margin-left: 15px;
-  margin-bottom: 25px; /* 아래쪽 여백 */
+  margin-bottom: 25px;
 }
 
 /* "위험등급1" 스타일 */
 .info-box1 h6 {
   color: rgb(0, 150, 100);
-  font-size: 50px; /* 크게 설정 */
+  font-size: 50px;
   margin-top: 40px;
   margin-left: 15px;
-  margin-bottom: 25px; /* 아래쪽 여백 */
+  margin-bottom: 25px; 
 }
 
 /* "사고수" 스타일 */
 .info-box1 p {
-  font-size: 20px; /* 기본 크기 */
+  font-size: 20px;
   margin-left: 15px;
-  margin-top: -20px; /* 위쪽 여백 */
+  margin-top: -20px; 
 }
 
 /* 각 항목들 스타일 */
 .info-box2 p {
-  font-size: 25px; /* 기본 크기 */
-  margin-top: 15px; /* 위쪽 여백 */
+  font-size: 25px;
+  margin-top: 15px;
   margin-left: 15px;
-  margin-bottom: 10px; /* 아래쪽 여백 */
-  line-height: 1.0; /* 줄 간격 */
+  margin-bottom: 10px;
+  line-height: 1.0;
 }
 
 /* 3소제목 */
 .info-box3 h3 {
-  font-size: 25px; /* 제목 크기 */
-  margin-top: 15px; /* 위쪽 여백 */
+  font-size: 25px;
+  margin-top: 15px;
   margin-left: 15px;
-  margin-bottom: 10px; /* 아래쪽 여백 */
+  margin-bottom: 10px;
   font-weight: bold;
 }
 
 /* 3소제목아래 */
 .info-box3 p {
-  font-size: 20px; /* 기본 크기 */
-  margin-top: 15px; /* 위쪽 여백 */
+  font-size: 20px;
+  margin-top: 15px;
   margin-left: 15px;
-  margin-bottom: 10px; /* 아래쪽 여백 */
-  line-height: 1.0; /* 줄 간격 */
+  margin-bottom: 10px;
+  line-height: 1.0;
 }
 
 /* 4소제목 */
 .info-box4 h3 {
-  font-size: 25px; /* 제목 크기 */
-  margin-top: 15px; /* 위쪽 여백 */
+  font-size: 25px;
+  margin-top: 15px;
   margin-left: 15px;
-  margin-bottom: 10px; /* 아래쪽 여백 */
+  margin-bottom: 10px;
   font-weight: bold;
 }
 
 /* 4소제목아래 */
 .info-box4 p {
-  font-size: 20px; /* 기본 크기 */
-  margin-top: 15px; /* 위쪽 여백 */
+  font-size: 20px;
+  margin-top: 15px;
   margin-left: 15px;
-  margin-bottom: 10px; /* 아래쪽 여백 */
-  line-height: 1.0; /* 줄 간격 */
+  margin-bottom: 10px;
+  line-height: 1.0;
+}
+
+#guImageBox1 {
+  position: fixed;
+  top: 200px;   
+  right: 350px; 
+  z-index: 999;
+}
+
+#guImageBox2 {
+  position: fixed;
+  top: 200px;   
+  right: 50px;   
+  z-index: 999;
+}
+
+button {
+  background-color: #e6f7ff;
+  border: 2px solid #b3e5fc;
+  border-radius: 20px;
+  padding: 8px 15px;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: 'Paperlogy-Bold', sans-serif;
+  color: #007acc;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #d0f0ff;
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
 }
